@@ -5,7 +5,7 @@
 
 data <- dat3 # Use the recoded but unpruned data (only counting the correct keypresses tho)
 
-title <- "Quantile plots of RTs to target on current trial"
+title = "Quantile plots of RTs to target on current trial"
 numBins = 5
 #============================================================
 require(tidyverse)
@@ -39,8 +39,8 @@ p <- ggplot(quant.cond,
                 y=quant,
                 color=PrevTrial,
                 group=PrevTrial)) +
-  geom_point(stat="identity") +
-  geom_line(stat="identity") +
+  geom_point(stat="identity", size=1.6, alpha=0.7) +
+  geom_line(stat="identity", size=1) +
   scale_x_continuous(limits=c(0,1),
                      breaks=c(0,.2,.4,.6,.8,1)
                      ) +
@@ -49,9 +49,9 @@ p <- ggplot(quant.cond,
   ggtitle(title) +
   ylab("RT quantile mean (ms)") + 
   xlab("Response Proportion") +
-  (theme_bw(base_size = 16))
+  (theme_bw(base_size = 14))
 
 print(p)
 
 ggsave("pictures/Quantiles.png", ### Image file title
-       p, width=6, height=8)
+       p, width=12, height=8)
